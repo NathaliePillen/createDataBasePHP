@@ -1,6 +1,7 @@
 <?php
 
-include_once 'connection.php';
+include 'connection.php';
+include 'test.php';
 
 $first_name = $last_name = $username = $email ='';
 $errors = array('first_name' => '', 'last_name' => '', 'username' => '', 'email' => '');
@@ -71,7 +72,18 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-    $conn
+    <?php 
+    //print_r(PDO::getAvailableDrivers());
+    $object1=new Test();
+    $object1->getStudents();
+
+    $object2=new Test();
+    $object2->getStudentsStmt("Nathalie","Pillen");
+
+    //$object3=new Test();
+    //$object3->setStudentsStmt("Stijn", "Peeters", "STIPEE", "stijn.peeters.it@gmail.com");
+
+    ?>
 	<section>
         <h4>Add a Student</h4>
         

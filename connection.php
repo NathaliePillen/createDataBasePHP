@@ -1,21 +1,29 @@
 <?php
 
-$dbHost ="localhost";
-$dbUser = "nathalie";
-$dbPass ="test1234";
-$dbName = "becode";
-$charset = "utf8mb4";
+class Dbh {
 
-$dsn = "mysql:host=$dbHost; dbname=$dbName; charset=$charset";
+    private $dbHost = "localhost";
+    private $dbUser = "nathalie";
+    private $dbPass = "test1234";
+    private $dbName = "becode";
+    private $dbcharset = "utf8mb4";
 
-try {
-    $pdo = new PDO($dsn, $dbUser, $dbPass);   
-    echo "Hello DataBase !";
-    }
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
+    public function connect(){
+        //try {
+            $dsn = "mysql:host=".$this->dbHost."; dbname=".$this->dbName."; charset=".$this->dbcharset;   
+            $pdo = new PDO($dsn, $this->dbUser, $this->dbPass);
+            //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            //$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            //echo 'Hello dataBase';
+            return $pdo;
+        //}catch(PDOException $e){
+           // echo "Connection failed: " . $e->getMessage();
+            //}
+    }   
+}
+
+
 
 
 /*function openConnection() {
