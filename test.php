@@ -1,7 +1,8 @@
 <?php
-//Access first_name from database becode table student
+
 class Test extends Dbh{
 
+//Access first_name from database becode table student
     public function getStudents(){
         $sql="SELECT * FROM student";
         $stmt = $this->connect()->query($sql);
@@ -30,12 +31,10 @@ class Test extends Dbh{
         $stmt->execute([$first_name, $last_name,$username, $email]);
         }
 
-
-    /*public function deleteStudents($id){
-        $sql = "DELETE FROM student WHERE id = ?";
-        $stmt = $this->connect()->prepare($sql);
+//delete data
+    /*public function setStudentsDel($id){
+        $sql = "DELETE FROM student WHERE id=6";
+        $stmt = $this ->connect()->prepare($sql);
         $stmt->execute($id);
-        $deleted = $stmt->rowCount();
-
     }*/
 }

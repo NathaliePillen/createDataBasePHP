@@ -12,7 +12,7 @@ class Dbh {
         //try {
             $dsn = "mysql:host=".$this->dbHost."; dbname=".$this->dbName."; charset=".$this->dbcharset;   
             $pdo = new PDO($dsn, $this->dbUser, $this->dbPass);
-            //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             //$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             //echo 'Hello dataBase';
